@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../static/bootstrap.min.css" crossorigin="anonymous">
+    {% if title %}
+    <title>{{ title }} - Api</title>
+    {% else %}
+    <title>Welcome to Usage Api</title>
+    {% endif %}
+</head>
+<body>
+
+
+{% if not requestIp %}
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+          <a class="p-2 text-dark" href="/index">Home</a>
+      </nav>
+</div>
+{% elif requestIp %}
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">{{ title }}</h5>
+
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark">Welcome Back {{ requestIp }}</a>
+      </nav>
+
+</div>
+{% endif %}
+
+
+{% block content %}{% endblock %}
+</body>
+</html>
